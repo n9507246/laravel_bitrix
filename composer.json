@@ -1,0 +1,11 @@
+{
+    "name": "bitrix/www",
+    "autoload": {
+        "psr-4": {
+            "Bitrix\\Www\\": "src/"
+        }
+    },
+    "require": {
+        "illuminate/database": "^9.50"
+    }
+}
