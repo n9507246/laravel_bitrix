@@ -1,11 +1,21 @@
 {
-    "name": "bitrix/www",
+    "name": "bitrix/project",
+    "require": {
+        "illuminate/database": "^8.0",
+        "psr/container": "^1.0",
+        "symfony/var-dumper": "^6.3",
+        "illuminate/collections": "^8.83",
+        "illuminate/view": "^8.83",
+        "illuminate/events": "^8.0",
+        "illuminate/routing": "^8.0",
+        "illuminate/http": "^8.0",
+        "illuminate/container": "^8.0"
+    },
     "autoload": {
         "psr-4": {
-            "Bitrix\\Www\\": "src/"
+            "App\\": "local/php_interface/",
+            "App\\Http\\Middleware\\": "local/php_interface/middleware/"
+
         }
-    },
-    "require": {
-        "illuminate/database": "^9.50"
     }
 }

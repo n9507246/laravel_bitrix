@@ -1,7 +1,36 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мебельная компания");
-?><p>
+?>
+
+<pre>
+<? 
+	dump(
+		IBlock::select('ID', 'CODE', 'NAME') 
+			->with(['elements' => function($query){$query->select('ID', 'NAME', 'IBLOCK_ID', 'CREATED_BY')
+				->with(['createdBy' => function($query){$query->select('ID', 'NAME', 'LAST_NAME', 'LOGIN');}]);
+			}])
+			->first()
+			// ->toArray()	
+	);
+
+
+	$collection = collect([1, 2, 3, 4, 5]);
+	
+	$filtered = $collection->filter(function ($value, $key) {
+		return $value > 2;
+	});
+
+	dump($filtered);
+	dump($filtered);
+	$data = ['name' => 'John', 'age' => 30];
+
+	dump($data);
+	
+?>
+</pre>
+
+<p>
 Наша компания существует на Российском рынке с 1992 года. За это время «Мебельная компания» прошла большой путь от маленькой торговой фирмы до одного из крупнейших производителей корпусной мебели в России.
 </p><p>
 «Мебельная компания» осуществляет производство мебели на высококлассном оборудовании с применением минимальной доли ручного труда, что позволяет обеспечить высокое качество нашей продукции. Налажен производственный процесс как массового и индивидуального характера, что с одной стороны позволяет обеспечить постоянную номенклатуру изделий и индивидуальный подход – с другой.
